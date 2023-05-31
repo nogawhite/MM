@@ -113,7 +113,7 @@ void MM_AppMain(void);
  *  \return Execution status, see \ref CFEReturnCodes
  *  \retval #CFE_SUCCESS \copybrief CFE_SUCCESS
  */
-int32 MM_AppInit(void);
+CFE_Status_t MM_AppInit(void);
 
 /**
  * \brief Process a command pipe message
@@ -213,7 +213,7 @@ bool MM_SymTblToFileCmd(const CFE_SB_Buffer_t *msg);
  * \brief Write-enable EEPROM command
  *
  *  \par Description
- *       Processes a EEPROM write enable ground command which calls
+ *       Processes an EEPROM write enable ground command which calls
  *       the #CFE_PSP_EepromWriteEnable cFE function using the specified
  *       bank number.
  *
@@ -230,7 +230,7 @@ bool MM_EepromWriteEnaCmd(const CFE_SB_Buffer_t *msg);
  * \brief Write-disable EEPROM command
  *
  *  \par Description
- *       Processes a EEPROM write disable ground command which calls
+ *       Processes an EEPROM write disable ground command which calls
  *       the #CFE_PSP_EepromWriteDisable cFE function using the specified
  *       bank number.
  *

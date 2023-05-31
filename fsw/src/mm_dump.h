@@ -44,10 +44,10 @@
  *
  * The event message format is:
  *    Message head "Memory Dump: "             13 characters
- *    Message body "0xFF "                      5 characters per dump byte
+ *    Message body "FF"                         2 characters per dump byte
  *    Message tail "from address: 0xFFFFFFFF"  33 characters including NUL on 64-bit system
  */
-#define MM_MAX_DUMP_INEVENT_BYTES ((CFE_MISSION_EVS_MAX_MESSAGE_LENGTH - (13 + 33)) / 5)
+#define MM_MAX_DUMP_INEVENT_BYTES ((CFE_MISSION_EVS_MAX_MESSAGE_LENGTH - (13 + 33)) / 2)
 
 /**
  * \brief Dump in an event scratch string size
@@ -99,7 +99,7 @@ bool MM_PeekMem(const MM_PeekCmd_t *CmdPtr, cpuaddr SrcAddress);
 bool MM_DumpMemToFile(osal_id_t FileHandle, const char *FileName, const MM_LoadDumpFileHeader_t *FileHeader);
 
 /**
- * \brief Write the cFE primary and and MM secondary file headers
+ * \brief Write the cFE primary and MM secondary file headers
  *
  *  \par Description
  *       Support function for #MM_DumpMemToFileCmd. This routine will
